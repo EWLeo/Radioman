@@ -8,41 +8,41 @@ public class Radio {
     private int maxSoundVolume = 10;
     private int minSoundVolume = 0;
 
-    public int getCurrentRadioStation(){
-     return currentRadioStation;
+    public int getCurrentRadioStation() {
+        return currentRadioStation;
     }
 
-    public void setCurrentRadioStation(int currentRadioStation){
-       if (currentRadioStation<minRadioStation || currentRadioStation>maxRadioStation) {
-           return;
-       }
-       this.currentRadioStation = currentRadioStation;
+    public void setCurrentRadioStation(int currentRadioStation) {
+        if (currentRadioStation < minRadioStation || currentRadioStation > maxRadioStation) {
+            return;
+        }
+        this.currentRadioStation = currentRadioStation;
     }
 
     public void increaseRadioStation() {
-        if (currentRadioStation < maxRadioStation) {
-            currentRadioStation = currentRadioStation + 1;
+        currentRadioStation = currentRadioStation + 1;
+        if (currentRadioStation <= maxRadioStation) {
         }
-        if (currentRadioStation>maxRadioStation){
+        if (currentRadioStation > maxRadioStation) {
             currentRadioStation = minRadioStation;
         }
     }
 
     public void decreaseRadioStation() {
-        if (currentRadioStation > minRadioStation) {
-            currentRadioStation = currentRadioStation - 1;
+        currentRadioStation = currentRadioStation - 1;
+        if (currentRadioStation >= minRadioStation) {
         }
-        if (currentRadioStation<minRadioStation){
+        if (currentRadioStation < minRadioStation) {
             currentRadioStation = maxRadioStation;
         }
     }
 
-    public int getCurrentSoundVolume(){
+    public int getCurrentSoundVolume() {
         return currentSoundVolume;
     }
 
-    public void setCurrentSoundVolume(int currentSoundVolume){
-        if (currentSoundVolume<minSoundVolume || currentSoundVolume>maxSoundVolume) {
+    public void setCurrentSoundVolume(int currentSoundVolume) {
+        if (currentSoundVolume < minSoundVolume || currentSoundVolume > maxSoundVolume) {
             return;
         }
         this.currentSoundVolume = currentSoundVolume;
@@ -52,17 +52,11 @@ public class Radio {
         if (currentSoundVolume < maxSoundVolume) {
             currentSoundVolume = currentSoundVolume + 1;
         }
-        if (currentSoundVolume>maxSoundVolume){
-            currentSoundVolume = minSoundVolume;
-        }
     }
 
     public void decreaseSoundVolume() {
         if (currentSoundVolume > minSoundVolume) {
             currentSoundVolume = currentSoundVolume - 1;
-        }
-        if (currentSoundVolume<minSoundVolume){
-            currentSoundVolume = maxSoundVolume;
         }
     }
 }
